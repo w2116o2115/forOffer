@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/myThreadConcurrency.iml" filepath="$PROJECT_DIR$/myThreadConcurrency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/forOffer.iml" filepath="$PROJECT_DIR$/.idea/forOffer.iml" />
     </modules>
   </component>
 </project>

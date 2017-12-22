@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="myThreadConcurrency" />
+        <module name="forOffer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="myThreadConcurrency" target="1.5" />
+      <module name="forOffer" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
