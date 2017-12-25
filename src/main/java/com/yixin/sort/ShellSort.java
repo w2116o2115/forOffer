@@ -15,19 +15,19 @@ public class ShellSort {
         System.out.println( Arrays.toString( array ) );
     }
 
-    static void sort(int[] array) {
-      for (int gap = array.length/2;gap>0;gap/=2){
-          for (int i=0;i<gap;i++){
-              for (int j=i+gap;j<array.length;j+=gap){
-                  int temp = array[j];
-                  int k = j-gap;
-                  while (k>=0&&array[k]>temp){
-                      array[k+gap] = array[k];
-                      k-=gap;
-                  }
-                  array[k+gap] = temp;
-              }
-          }
-      }
+    private static void sort(int[] array) {
+        for (int gap=array.length/2;gap>0;gap/=2){
+            for (int i=gap;i>0;i--){
+                for (int j=i+gap;j<array.length;j+=gap){
+                    int temp = array[j];
+                    int k = j - gap;
+                    while (k>=0&&array[k]>temp){
+                        array[k+gap] = array[k];
+                        k-=gap;
+                    }
+                    array[k+gap] = temp;
+                }
+            }
+        }
     }
 }
