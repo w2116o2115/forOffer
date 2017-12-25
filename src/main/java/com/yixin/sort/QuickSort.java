@@ -14,29 +14,28 @@ public class QuickSort {
         System.out.println( Arrays.toString( array ) );
     }
 
-    static void sort(int[] array, int left, int right) {
-        int i,j,temp,t;
+    private static void sort(int[] array, int left, int right) {
+        int i,j,t,temp;
         if (left>right){
             return;
         }
-        temp = array[left];
         i = left;
         j = right;
+        temp = array[left];
         while (i!=j){
             while (j>i&&array[j]>=temp)
                 j--;
             while (j>i&&array[i]<=temp)
                 i++;
             if (j>i){
-                t = array[j];
-                array[j]=array[i];
-                array[i]=t;
+                t = array[i];
+                array[i] = array[j];
+                array[j] = t;
             }
         }
         array[left] = array[i];
         array[i] = temp;
-
         sort( array,left,i-1 );
-        sort(array,i+1,right);
+        sort( array,i+1,right );
     }
 }
