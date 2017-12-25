@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Date 2017/12/22
  */
 public class MergeSort {
-    public void Merge(int[] array, int low, int mid, int high) {
+    public static void merge(int[] array, int low, int mid, int high) {
         int i = low; // i是第一段序列的下标
         int j = mid + 1; // j是第二段序列的下标
         int k = 0; // k是临时存放合并序列的下标
@@ -46,48 +46,25 @@ public class MergeSort {
             array[i] = array2[k];
         }
     }
-
-    public void MergePass(int[] array, int gap, int length) {
-        int i = 0;
-
-        // 归并gap长度的两个相邻子表
-        for (i = 0; i + 2 * gap - 1 < length; i = i + 2 * gap) {
-            Merge(array, i, i + gap - 1, i + 2 * gap - 1);
+    public static int[] sort(int[] array, int low, int high) {
+        int mid = (low + high) / 2;
+        if (low < high) {
+            // 左边数组
+            sort(array, low, mid);
+            // 右边数组
+            sort(array, mid + 1, high);
+            // 左右归并
+            merge(array, low, mid, high);
         }
-
-        // 余下两个子表，后者长度小于gap
-        if (i + gap - 1 < length) {
-            Merge(array, i, i + gap - 1, length - 1);
-        }
+        return array;
     }
 
-    public int[] sort(int[] list) {
-        for (int gap = 1; gap < list.length; gap = 2 * gap) {
-            MergePass(list, gap, list.length);
-            System.out.print("gap = " + gap + ":\t");
-            this.printAll(list);
-        }
-        return list;
-    }
-
-    // 打印完整序列
-    public void printAll(int[] list) {
-        for (int value : list) {
-            System.out.print(value + "\t");
-        }
-        System.out.println();
-    }
 
     public static void main(String[] args) {
         int[] array = {
                 9, 1, 5, 3, 4, 2, 6, 8, 7
         };
-
-        MergeSort merge = new MergeSort();
-        System.out.print("排序前:\t\t");
-        merge.printAll(array);
-        merge.sort(array);
-        System.out.print("排序后:\t\t");
-        merge.printAll(array);
+        int[] sorted = sort(array, 0, array.length - 1);
+        System.out.println(Arrays.toString( sorted ));
     }
 }
