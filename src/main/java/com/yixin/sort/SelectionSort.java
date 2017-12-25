@@ -14,16 +14,16 @@ public class SelectionSort {
         System.out.println( Arrays.toString( array ) );
     }
 
-    static void sort(int[] array) {
+    private static void sort(int[] array) {
         for (int i=0;i<array.length;i++){
-            int k = i;
-            for (int j=i+1;j<array.length;j++){
+            int k=i;
+            for (int j = i+1;j<array.length;j++){
                 if (array[k]>array[j])
                     k=j;
             }
-            int temp = array[i];
-            array[i] = array[k];
-            array[k] =temp;
+            int temp = array[k];
+            array[k] = array[i];
+            array[i] = temp;
         }
     }
 }
