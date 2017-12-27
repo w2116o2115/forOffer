@@ -7,58 +7,42 @@ import java.util.Arrays;
  * Date 2017/12/22
  */
 public class MergeSort {
-    public static void merge(int[] array, int low, int mid, int high) {
-        int i = low; // i是第一段序列的下标
-        int j = mid + 1; // j是第二段序列的下标
-        int k = 0; // k是临时存放合并序列的下标
-        int[] array2 = new int[high - low + 1]; // array2是临时合并序列
-
-        // 扫描第一段和第二段序列，直到有一个扫描结束
-        while (i <= mid && j <= high) {
-            // 判断第一段和第二段取出的数哪个更小，将其存入合并序列，并继续向下扫描
-            if (array[i] <= array[j]) {
+    private static void merge(int[] array,int low,int mid,int hight){
+        int i = low;
+        int j = mid + 1;
+        int k = 0;
+        int[] array2 = new int[hight-low+1];
+        while (i<=mid&&j<=hight){
+            if (array[i]<array[j]){
                 array2[k] = array[i];
-                i++;
-                k++;
-            } else {
+                i++;k++;
+            }else {
                 array2[k] = array[j];
-                j++;
-                k++;
+                j++;k++;
             }
         }
-
-        // 若第一段序列还没扫描完，将其全部复制到合并序列
-        while (i <= mid) {
+        while (i<=mid){
             array2[k] = array[i];
-            i++;
-            k++;
+            i++;k++;
         }
-
-        // 若第二段序列还没扫描完，将其全部复制到合并序列
-        while (j <= high) {
+        while (j<=hight){
             array2[k] = array[j];
-            j++;
-            k++;
+            j++;k++;
         }
-
-        // 将合并序列复制到原始序列中
-        for (k = 0, i = low; i <= high; i++, k++) {
+        for (k=0,i=low;i<=hight;i++,k++){
             array[i] = array2[k];
         }
     }
-    public static int[] sort(int[] array, int low, int high) {
-        int mid = (low + high) / 2;
-        if (low < high) {
-            // 左边数组
-            sort(array, low, mid);
-            // 右边数组
-            sort(array, mid + 1, high);
-            // 左右归并
-            merge(array, low, mid, high);
+
+    private static int[] sort(int[] array,int low,int hight){
+        int mid = (low+hight)/2;
+        if (low<hight){
+            sort( array,low,mid );
+            sort( array,mid+1,hight );
+            merge( array,low,mid,hight);
         }
         return array;
     }
-
 
     public static void main(String[] args) {
         int[] array = {
