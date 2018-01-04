@@ -12,7 +12,8 @@ interface Strategy {
  * Creates on 16/4/14.
  * 在策略模式
  * 在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。
- * 何时使用：一个系统有许多许多类，而区分它们的只是他们直接的行为。
+ * 策略模式是指对一系列的算法定义，并将每一个算法封装起来，而且使它们还可以相互替换。
+ * 策略模式让算法独立于使用它的客户而独立变化。
  */
 public class myStrategy {
     public static void main(String[] args) {
