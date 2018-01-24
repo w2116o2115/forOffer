@@ -17,7 +17,7 @@ public class DalQuery {
 		ChildOp co;
 		List<WhereClause> children;
 		String fieldId;
-		Field val;
+		//Field val;
 		Op op;
 	};
 	

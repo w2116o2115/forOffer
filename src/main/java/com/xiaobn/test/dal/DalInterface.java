@@ -65,11 +65,11 @@ public interface DalInterface {
 	
 	
 	// Initialize common DAL for multitenancy server
-	public static void Init() throws Exception {};
+	//public static void Init() throws Exception {};
 	
 	// Get a DAL instance for a specific tenant and a specific user.
 	// This static function needs to be implemented by DAL's implementation class.
-	public static DalInterface getDal(String tenantId) { return null; }
+	//public static DalInterface getDal(String tenantId) { return null; }
 	
 	// Following are used for object and field customization.
 	
