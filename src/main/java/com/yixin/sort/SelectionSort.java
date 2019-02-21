@@ -19,7 +19,7 @@ public class SelectionSort {
     private static void sort(int[] array) {
         for (int i=0;i<array.length;i++){
             int k=i;
-            for (int j = i+1;j<array.length;j++){
+            for (int j = i+1;j<array.length;j++){//为排序区查找最小的那个值
                 if (array[k]>array[j])
                     k=j;
             }
