@@ -19,7 +19,7 @@ public class insertSort {
             int j = i - 1;
             int temp = array[i];
             while (j>=0&&array[j]>temp){
-                array[j+1] = array[j];
+                array[j+1] = array[j];//往后移一位
                 j--;
             }
             array[j+1] = temp;
