@@ -3,6 +3,7 @@ package com.yixin.sort;
 import java.util.Arrays;
 
 /**
+ * 分治递归思想
  * Created by wei
  * Date 2017/12/22
  */
