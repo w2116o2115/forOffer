@@ -40,21 +40,21 @@ public class BinarySearch {
      */
     public int bsearch1(int[] a, int n, int value) {
         int low = 0;
-        int hight = n - 1;
-        while (hight>low){
-            int mid = (hight-low)/2 + 1;
-            if (a[mid] == value){
-                return mid;
-            }
-            if (a[mid] > value){
-                hight = mid-1;
-            }
-            if (a[mid] < value){
+        int high = n - 1;
+        while (low <= high) {
+            int mid =  low + ((high - low) >> 1);
+            if (a[mid] > value) {
+                high = mid - 1;
+            } else if (a[mid] < value) {
                 low = mid + 1;
+            } else {
+                if ((mid == 0) || (a[mid - 1] != value)) return mid;
+                else high = mid - 1;
             }
         }
         return -1;
     }
+
 
     /**
      * 变体二:查找最后一个值等于给定值的元素
