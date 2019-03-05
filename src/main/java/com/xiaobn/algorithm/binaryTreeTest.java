@@ -157,7 +157,7 @@ public class binaryTreeTest {
         }
         ArrayDeque<Node> stack=new ArrayDeque<Node>();
         stack.push(root);
-        while(stack.isEmpty()==false){
+        while(!stack.isEmpty()){
             Node node=stack.pop();
             System.out.print(node.data+ " ");
             if(node.rightChild!=null){
