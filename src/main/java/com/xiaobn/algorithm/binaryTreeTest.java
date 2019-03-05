@@ -145,6 +145,13 @@ public class binaryTreeTest {
     }
 
     /**
+     *               1
+     *             /   \
+     *            2     3
+     *           / \   / \
+     *          4   5  6  7
+     *         / \
+     *        8   9
      * 深度优先遍历，相当于先根遍历
      * 採用非递归实现
      * 须要辅助数据结构：栈
@@ -171,6 +178,13 @@ public class binaryTreeTest {
     }
 
     /**
+     *               1
+     *             /   \
+     *            2     3
+     *           / \   / \
+     *          4   5  6  7
+     *         / \
+     *        8   9
      * 广度优先遍历
      * 採用非递归实现
      * 须要辅助数据结构：队列
@@ -183,7 +197,7 @@ public class binaryTreeTest {
         }
         ArrayDeque<Node> queue=new ArrayDeque<Node>();
         queue.add(root);
-        while(queue.isEmpty()==false){
+        while(!queue.isEmpty()){
             Node node=queue.remove();
             System.out.print(node.data+ " ");
             if(node.leftChild!=null){
