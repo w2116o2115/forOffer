@@ -61,7 +61,7 @@ public class MyHashMap<K,V> implements MyMap<K,V>{
         if (entrySize >= defaultInitSize*defaultLoadFactor)
             resize(2*defaultInitSize);
         //得到HASH值，计算出数组中的位置
-        int index = hash(k) & (defaultInitSize -1);
+        int index = hash(k) & (defaultInitSize -1);//按位与  目的是为了取模，当n等于2的次幂时，"m%n"和"m&(n-1)"等价这就是为什么 桶的数量必须是2的次幂，为了方便取模
         if(table[index] == null){
             table[index] = new MyEntry<K,V>(k,v,null);
             ++entrySize;
@@ -98,10 +98,12 @@ public class MyHashMap<K,V> implements MyMap<K,V>{
         return null;
     }
 
-    private int hash(K k){
-        int hashCode = k.hashCode();
-        hashCode ^= (hashCode >>> 20) ^ (hashCode >>> 12);
-        return hashCode  ^ (hashCode >>> 7) ^ (hashCode >>> 4);
+    //<<:左移运算符，num << 1,相当于num乘以2
+    //>>:右移运算符，num >> 1,相当于num除以2
+    //>>>:无符号右移，忽略符号位，空位都以0补齐
+    private int hash(K k){//用原始的hashcode很容易产生hash碰撞
+        int h;
+        return (k == null) ? 0 : (h = k.hashCode()) ^ (h >>> 16);//该操作的目的是为了让原来的hashcode的每一位都对最终的取模结果产生了影响
     }
 
     private void resize(int i){
